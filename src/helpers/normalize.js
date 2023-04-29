@@ -6,7 +6,7 @@ const profile_sizes = ['w45', 'w185', 'h632', 'original'];
 
 const forList = (data) => data.results.map(movie => ({
     title: movie.title,
-    poster: base_url + poster_sizes[0] + movie.poster_path,
+    poster: base_url + poster_sizes[1] + movie.poster_path,
     id: movie.id,
 }))
 
@@ -14,7 +14,7 @@ const forDetails = movie => ({
     title: movie.title,
     poster: base_url + poster_sizes[2] + movie.poster_path,
     year: new Date(movie.release_date).getFullYear(),
-    userScore: `${Math.floor(movie.vote_average * 10)}%`,
+    userScore: movie.vote_average !== 0.0 ? `${Math.floor(movie.vote_average * 10)}%` : 'no ratings yet',
     overview: movie.overview,
     genres: movie.genres.map(genre => genre.name).join(', ')
 })
