@@ -1,8 +1,9 @@
 import MovieListItem from 'components/MovieListItem/MovieListItem';
+import { List } from './MoviesList.styled';
 
 export default function MovieList({ movies }) {
   return (
-    <ul>
+    <List>
       {movies.map(movie => (
         <MovieListItem
           key={movie.id}
@@ -11,6 +12,6 @@ export default function MovieList({ movies }) {
           poster={movie.poster}
         ></MovieListItem>
       ))}
-    </ul>
+    </List>
   );
 }

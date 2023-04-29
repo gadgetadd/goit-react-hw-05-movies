@@ -1,9 +1,11 @@
 import { useFormik } from 'formik';
+import { Form, Input, Button, Alert } from './SearchForm.styled';
+import { HiOutlineSearchCircle } from 'react-icons/hi';
 
 const validate = values => {
   const errors = {};
   if (!values.search) {
-    errors.search = 'Required';
+    errors.search = 'Please, enter your search query';
   } else if (values.search.length > 30) {
     errors.search = 'Must be 30 characters or less';
   }
@@ -24,15 +26,18 @@ export default function SearchForm({ onSubmit }) {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <input
+    <Form onSubmit={formik.handleSubmit}>
+      <Input
         name="search"
         type="text"
         onChange={formik.handleChange}
         value={formik.values.search}
+        placeholder="Search"
       />
-      {formik.errors.search ? <div>{formik.errors.search}</div> : null}
-      <button type="submit">Search</button>
-    </form>
+      {formik.errors.search ? <Alert>{formik.errors.search}</Alert> : null}
+      <Button type="submit">
+        <HiOutlineSearchCircle size="30px" color="#18272fbb" />
+      </Button>
+    </Form>
   );
 }

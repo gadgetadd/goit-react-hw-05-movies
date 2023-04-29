@@ -1,3 +1,5 @@
+import previewPlaceholder from 'images/preview-placeholder.png'
+
 const base_url = "https://image.tmdb.org/t/p/";
 // const backdrop_sizes = ['w300', 'w780', 'w1280', 'original'];
 // const logo_sizes = ['w45', 'w92', 'w154', 'w185', 'w300', 'w500', 'original'];
@@ -6,13 +8,13 @@ const profile_sizes = ['w45', 'w185', 'h632', 'original'];
 
 const forList = (data) => data.results.map(movie => ({
     title: movie.title,
-    poster: base_url + poster_sizes[1] + movie.poster_path,
+    poster: movie.poster_path ? base_url + poster_sizes[3] + movie.poster_path : previewPlaceholder,
     id: movie.id,
 }))
 
 const forDetails = movie => ({
     title: movie.title,
-    poster: base_url + poster_sizes[2] + movie.poster_path,
+    poster: movie.poster_path ? base_url + poster_sizes[2] + movie.poster_path : null,
     year: new Date(movie.release_date).getFullYear(),
     userScore: movie.vote_average !== 0.0 ? `${Math.floor(movie.vote_average * 10)}%` : 'no ratings yet',
     overview: movie.overview,
