@@ -6,7 +6,7 @@ export const MainWrapper = styled.div`
   gap: 40px;
   margin-top: 20px;
   border-bottom: 2px solid whitesmoke;
-  padding: 0 20px;
+  padding: 20px;
 
   @media screen and (max-width: 768px) {
     display: block;
