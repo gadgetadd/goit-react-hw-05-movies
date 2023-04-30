@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import MovieList from 'components/MoviesList/MoviesList';
+import PageTitle from 'components/PageTitle/PageTitle';
 import API from 'services/api';
 
 export default function Home() {
@@ -14,5 +15,10 @@ export default function Home() {
     hadleFetchPopular();
   }, [hadleFetchPopular]);
 
-  return <MovieList movies={movies}></MovieList>;
+  return (
+    <>
+      <PageTitle title={'Trending now'} />
+      <MovieList movies={movies} />
+    </>
+  );
 }

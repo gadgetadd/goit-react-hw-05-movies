@@ -1,4 +1,6 @@
 import previewPlaceholder from 'images/preview-placeholder.png'
+import castPlaceholder from 'images/cast-placeholder.jpg'
+import detailsPlaceholder from 'images/details-placeholder.jpg'
 
 const base_url = "https://image.tmdb.org/t/p/";
 // const backdrop_sizes = ['w300', 'w780', 'w1280', 'original'];
@@ -14,7 +16,7 @@ const forList = (data) => data.results.map(movie => ({
 
 const forDetails = movie => ({
     title: movie.title,
-    poster: movie.poster_path ? base_url + poster_sizes[2] + movie.poster_path : null,
+    poster: movie.poster_path ? base_url + poster_sizes[3] + movie.poster_path : detailsPlaceholder,
     year: new Date(movie.release_date).getFullYear(),
     userScore: movie.vote_average !== 0.0 ? `${Math.floor(movie.vote_average * 10)}%` : 'no ratings yet',
     overview: movie.overview,
@@ -23,7 +25,7 @@ const forDetails = movie => ({
 
 const forCast = movie => movie.cast.map(actor => ({
     id: actor.id,
-    photo: base_url + profile_sizes[1] + actor.profile_path,
+    photo: actor.profile_path ? base_url + profile_sizes[0] + actor.profile_path : castPlaceholder,
     name: actor.name,
     character: actor.character,
 })).filter(actor => !actor.character.includes('uncredited'))

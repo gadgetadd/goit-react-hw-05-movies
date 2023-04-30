@@ -3,6 +3,7 @@ import MovieList from 'components/MoviesList/MoviesList';
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import API from 'services/api';
+import PageTitle from 'components/PageTitle/PageTitle';
 
 export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,9 +24,14 @@ export default function Movies() {
   }, [hadleFetchSearch]);
 
   return (
-    <div>
+    <>
       <SearchForm onSubmit={handleSubmit}></SearchForm>
-      <MovieList movies={movies}></MovieList>
-    </div>
+      {search && (
+        <>
+          <PageTitle title={`Search results for "${search}"`} />
+          <MovieList movies={movies}></MovieList>
+        </>
+      )}
+    </>
   );
 }

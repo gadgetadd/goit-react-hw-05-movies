@@ -10,6 +10,7 @@ export const Form = styled.form`
 export const Input = styled.input`
   height: 36px;
   width: 100%;
+  padding: 5px 10px;
 `;
 
 export const Button = styled.button`
