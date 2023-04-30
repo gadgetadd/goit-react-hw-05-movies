@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
+
 import API from 'services/api';
 import { Item, List, Name, Character } from './Cast.styled';
 import { Fallback } from 'components/Fallback/Fallback.styled';

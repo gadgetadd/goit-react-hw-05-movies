@@ -1,6 +1,8 @@
+import PropTypes from "prop-types"
 import { useFormik } from 'formik';
-import { Form, Input, Button, Alert } from './SearchForm.styled';
 import { HiOutlineSearchCircle } from 'react-icons/hi';
+
+import { Form, Input, Button, Alert } from './SearchForm.styled';
 
 const validate = values => {
   const errors = {};
@@ -40,4 +42,8 @@ export default function SearchForm({ onSubmit }) {
       </Button>
     </Form>
   );
+}
+
+SearchForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired
 }

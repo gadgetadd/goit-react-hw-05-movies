@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, Suspense } from 'react';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { MdKeyboardBackspace } from 'react-icons/md';
+
 import API from 'services/api';
 import {
   MainWrapper,
@@ -10,7 +11,6 @@ import {
   Text,
   Button,
 } from './MovieDetails.styled';
-
 import { Fallback } from 'components/Fallback/Fallback.styled';
 
 export default function MovieDetails() {

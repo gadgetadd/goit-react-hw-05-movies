@@ -13,6 +13,10 @@ export const Item = styled.li`
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
       rgba(0, 0, 0, 0.22) 0px 10px 10px;
   }
+
+  @media screen and (max-width: 768px) {
+    margin: 0 auto;
+  }
 `;
 
 export const Title = styled.p`

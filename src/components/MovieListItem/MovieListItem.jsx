@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
+
 import { Item, Title, MovieLink } from './MovieListItem.styled';
 
 export default function MovieListItem({ title, poster, id }) {
@@ -13,3 +15,9 @@ export default function MovieListItem({ title, poster, id }) {
     </Item>
   );
 }
+
+MovieListItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  poster: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};

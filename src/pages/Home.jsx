@@ -1,10 +1,15 @@
 import { useState, useEffect, useCallback } from 'react';
+
+import API from 'services/api';
 import MovieList from 'components/MoviesList/MoviesList';
 import PageTitle from 'components/PageTitle/PageTitle';
-import API from 'services/api';
+import Loader from 'components/Loader/Loader';
+
 
 export default function Home() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(null);
+  const isLoaded = movies !== null;
+
 
   const hadleFetchPopular = useCallback(async () => {
     const response = await API.popular();
@@ -18,7 +23,8 @@ export default function Home() {
   return (
     <>
       <PageTitle title={'Trending now'} />
-      <MovieList movies={movies} />
+      {!isLoaded && <Loader />}
+      {isLoaded && <MovieList movies={movies} />}
     </>
   );
 }
