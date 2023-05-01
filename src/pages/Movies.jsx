@@ -34,7 +34,7 @@ export default function Movies() {
 
   return (
     <>
-      <SearchForm onSubmit={handleSubmit}></SearchForm>
+      <SearchForm onSubmit={handleSubmit} value={search}></SearchForm>
       {search &&
         ((!isLoaded && <Loader />) ||
           (isLoaded && (

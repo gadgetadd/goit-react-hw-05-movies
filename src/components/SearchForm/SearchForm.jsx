@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import { HiOutlineSearchCircle } from 'react-icons/hi';
 
@@ -15,10 +15,10 @@ const validate = values => {
   return errors;
 };
 
-export default function SearchForm({ onSubmit }) {
+export default function SearchForm({ onSubmit, value }) {
   const formik = useFormik({
     initialValues: {
-      search: '',
+      search: value,
     },
     validate,
     onSubmit: values => {
@@ -45,5 +45,6 @@ export default function SearchForm({ onSubmit }) {
 }
 
 SearchForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
-}
+  value: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};

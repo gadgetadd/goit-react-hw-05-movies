@@ -49,8 +49,12 @@ export default function MovieDetails() {
             </div>
           </MainWrapper>
           <ButtonWrapper>
-            <Button to={`cast`}>Cast</Button>
-            <Button to={`reviews`}>Reviews</Button>
+            <Button to="cast" state={{ from: backLinkHref }}>
+              Cast
+            </Button>
+            <Button to="reviews" state={{ from: backLinkHref }}>
+              Reviews
+            </Button>
           </ButtonWrapper>
         </>
       )}
